@@ -1,0 +1,1 @@
+export { OmdbMovie } from "./omdb-movie";
