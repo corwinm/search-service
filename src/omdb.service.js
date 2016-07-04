@@ -1,4 +1,4 @@
-System.register(["@angular/core", '@angular/http', 'rxjs'], function(exports_1, context_1) {
+System.register(["@angular/core", '@angular/http', 'rxjs/observable', 'rxjs/add/operator/map', 'rxjs/add/operator/catch'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", '@angular/http', 'rxjs'], function(exports_1, 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, rxjs_1;
+    var core_1, http_1, observable_1;
     var OmdbService;
     return {
         setters:[
@@ -20,9 +20,11 @@ System.register(["@angular/core", '@angular/http', 'rxjs'], function(exports_1, 
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (rxjs_1_1) {
-                rxjs_1 = rxjs_1_1;
-            }],
+            function (observable_1_1) {
+                observable_1 = observable_1_1;
+            },
+            function (_1) {},
+            function (_2) {}],
         execute: function() {
             OmdbService = (function () {
                 function OmdbService(http) {
@@ -31,7 +33,7 @@ System.register(["@angular/core", '@angular/http', 'rxjs'], function(exports_1, 
                 }
                 OmdbService.prototype.handleError = function (error) {
                     console.error('An error occurred', error);
-                    return new rxjs_1.Observable(error.message || error);
+                    return new observable_1.Observable(error.message || error);
                 };
                 OmdbService.prototype.search = function (query) {
                     //http://www.omdbapi.com/?s=Star+wars&y=&plot=short&r=json
